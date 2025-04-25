@@ -1,68 +1,81 @@
-🤖 Chathub
-Chathub is a Flutter-based conversational AI app powered by Google's Gemini API. It uses the gemini-2.0-flash model to generate intelligent and context-aware responses.
+# Chathub - Flutter-based Gemini Powered Chatbot
 
-🚀 Features
-🌐 Uses Gemini API (v1beta)
-💬 Chat interface with user and bot messages
-🔄 State management with ChangeNotifier
-⚡ Hot reload supported via Flutter
-🧠 AI responses powered by gemini-2.0-flash
-🛠️ Tech Stack
-Flutter (Frontend)
-Google Gemini API (LLM backend)
-Dart (Language)
-Provider (State management)
-HTTP (Networking)
-📁 Project Structure
-chatbot/ ├── lib/ │ ├── chat_provider.dart # Chat logic with ChangeNotifier │ ├── gemini_service.dart # Service class to call Gemini API │ └── main.dart # Entry point and UI ├── pubspec.yaml # Dependencies
+**Chathub** is a Flutter-based mobile application that integrates a Gemini-powered chatbot with Firebase authentication. It allows users to register, log in, and interact with a conversational AI chatbot seamlessly. The chatbot interface is designed to be intuitive and interactive, providing real-time responses to user queries.
 
-yaml Copy Edit
+## Features
 
-🔑 Setup Instructions
-Clone the repo
-git clone https://github.com/yourusername/birdify-chatbot.git
-cd birdify-chatbot
-Install dependencies
+- **User Authentication**: 
+  - Users can register and log in with their email via Firebase Authentication.
+  - Supports Firebase email-based authentication.
 
-bash
-Copy
-Edit
+- **Interactive Chat**: 
+  - A user-friendly chat interface where users can chat with a Gemini-powered chatbot.
+  - Real-time responses from the chatbot.
+
+- **Firebase Integration**: 
+  - Secure and fast authentication using Firebase.
+  - Firebase handles user management, ensuring secure login and registration.
+
+## Tech Stack
+
+- **Flutter**: Cross-platform mobile app framework for building iOS and Android applications.
+- **Gemini**: Conversational AI model used for generating chatbot responses.
+- **Firebase Authentication**: For handling user registration and login with email-based authentication.
+
+## Installation
+
+### Prerequisites
+
+- Flutter 2.0 or above
+- Firebase Project (with Firebase Authentication enabled)
+- Dart SDK
+- Android Studio or VS Code for Flutter development
+
+### Steps to Set Up the Project
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/yourusername/chathub.git
+   cd chathub
+
+Install the required dependencies:
 flutter pub get
-Add your Gemini API Key
+Set up Firebase:
 
-Open lib/gemini_service.dart and replace:
+Go to the Firebase Console.
 
-dart
-Copy
-Edit
-final String apiKey = 'YOUR_API_KEY';
-with your actual Gemini API Key.
+Create a new project or use an existing one.
 
-Run the app
+Set up Firebase Authentication:
 
-bash
-Copy
-Edit
-flutter run -d chrome
-🧪 Sample API Used
-http
-Copy
-Edit
-POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=YOUR_API_KEY
-Content-Type: application/json
+Enable Email/Password sign-in method.
 
-{
-  "contents": [
-    {
-      "parts": [
-        { "text": "Explain how AI works" }
-      ]
-    }
-  ]
-}
-⚠️ Important Notes
-Ensure you are using gemini-2.0-flash or a valid model name.
+Add your app's Firebase credentials to the project:
 
-The API is in v1beta, and not all models support all endpoints.
+For Android: Download the google-services.json and place it in the android/app/ directory.
 
-Handle exceptions gracefully in production.
+For iOS: Download the GoogleService-Info.plist and place it in the ios/Runner/ directory.
+
+Update Firebase dependencies in your pubspec.yaml file:
+
+dependencies:
+  firebase_core: ^latest_version
+  
+  firebase_auth: ^latest_version
+  
+  flutter:
+  
+    sdk: flutter
+Run the project on an emulator or physical device:
+
+flutter run
+
+Usage
+Upon starting the app, users will be presented with a login screen.
+
+Users can sign in using their email address and password or register if they don't have an account yet.
+
+Once logged in, the user will enter the chat screen, where they can interact with the chatbot.
+
+The chatbot will respond in real-time using Gemini.
